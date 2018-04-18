@@ -1,0 +1,17 @@
+Properly packaged (10 points):                                 10
+Compiles without errors (30 points):                           30
+Web app deploys and executes (20 points):                      20
+Assignment specific (40 points):
+   Servlet/Filter implementation (20 points)                   15
+   Deployment descriptors (10 points)                           0
+   Static content (5 points)                                    5
+   Client application (5 points)                                5
+-----------------------------------------------------------------
+Total:                                                         85
+
+Comments:
+--------------------------------------------------------------------------------
+There no web.xml file.
+
+There is no need for the switch statement in the servlet, just get the quote
+and then construct a valid XML document from it.

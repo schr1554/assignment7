@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Yahoo Stock Quote Servlet</title>
+</head>
+
+<body>
+	<a
+		href="http://localhost:8080/StockQuote/YahooStockQuoteServlet?stockType=salutation&format=html">GetStock
+		(html)</a>
+	<p>
+<!-- 		<a
+			href="http://localhost:8080/HelloWeb/CourtesyServlet?courtesyType=salutation&format=json">Salutation
+			(json)</a>
+	<p>
+		<a
+			href="http://localhost:8080/HelloWeb/CourtesyServlet?courtesyType=salutation&format=plain">Salutation
+			(plain)</a>
+	<p>
+		<a
+			href="http://localhost:8080/HelloWeb/CourtesyServlet?courtesyType=salutation&format=xml">Salutation
+			(xml)</a> -->
+	<form id="get-phrase"
+		action="http://localhost:8080/StockQuote/YahooStockQuoteServlet" method="post">
+		Stock Symbol: <select name=stockType size=1>
+			<option value=T>ATT
+			<option value=GOOGL>Google
+		</select> <br> Format: <input type="radio" name="format" value="html">HTML
+		<input type="radio" name="format" value="json" checked>JSON <input
+			type="radio" name="format" value="plain">Plain <input
+			type="radio" name="format" value="xml">XML
+		<p>
+			<input type="submit" name="submit_btn" value="Get Phrase">
+	</form>
+
+</body>
+</html>

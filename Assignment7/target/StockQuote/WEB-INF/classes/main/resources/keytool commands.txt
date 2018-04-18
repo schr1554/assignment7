@@ -1,0 +1,18 @@
+BROKER GENERATE KEYPAIR
+keytool -genkeypair -alias brokerPrivKey -keyalg RSA -keysize 512 -validity 365 -storetype JCEKS -keystore brokerKey.jck -storepass brokerStorePass -dname "cn=server, ou=cp130, o=UW, l=Seattle, st=Washington, c=US" -keypass brokerPrivKeyPass
+
+CLIENT GENERATE KEYPAIR
+keytool -genkeypair -alias clientPrivKey -keyalg RSA -keysize 512 -validity 365 -storetype JCEKS -keystore clientKey.jck -storepass clientStorePass -dname "cn=server, ou=cp130, o=UW, l=Seattle, st=Washington, c=US" -keypass clientPrivKeyPass
+
+BROKER PUBLIC KEY EXTRACT
+keytool -export -alias brokerPrivKey -storetype JCEKS -keystore brokerKey.jck -storepass brokerStorePass -file brokerCert.crt
+
+CLIENT PUBLIC KEY EXTRACT
+keytool -export -alias clientPrivKey -storetype JCEKS -keystore clientKey.jck -storepass clientStorePass -file clientCert.crt
+
+BROKER CERTIFICATE STORE
+keytool -importcert -noprompt -alias clientCert -file clientCert.crt -storetype JCEKS -keystore brokerTrust.jck -storepass brokerTrustPass
+
+CLIENT CERTIFICATE STORE
+keytool -importcert -noprompt -alias brokerCert -file brokerCert.crt -storetype JCEKS -keystore clientTrust.jck -storepass clientTrustPass 
+
